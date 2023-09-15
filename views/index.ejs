@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Chat App</title>
+</head>
+<body>
+
+    <div id="chatbody">
+        <div>
+            <h3>ChatBoard</h3>
+        </div>
+        <div id="chatbox">
+            <div class="message">User1: Hello</div>
+            <div class="message">User2: Hello</div>
+        </div>
+        <div id="inputdiv">
+            <form action="/newMessage" method="post">
+                <input type="text" name="msgbox" id="msgbox">
+                <input type="submit" value="Send">
+            </form>
+        </div>
+    </div>
+    
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/script.js"></script>
+</body>
+</html>

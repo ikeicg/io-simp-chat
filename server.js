@@ -1,15 +1,26 @@
-express = require("express");
-app = express();
+
+const express = require('express');
+const socketIO = require('./utils/socket');
+const app = express();
+
+
+app.use(express.static(__dirname + '/public'));
+app.set('view engine', 'ejs')
+
+app.get('/', (req, res) => {
+    res.render('index');
+})
+
 
 const port = process.env.PORT || 3000;
 
-app.get('/', (req, res) => {
-    res.send("We are Back!")
-})
+const server = app.listen(port, () => { 
+    console.log(`Server is Running!!`) 
+});
 
-app.listen(port, () => {
-    console.log(`Server is Running!!`);
-})
+const io = socketIO(server);
+
+
 
 
 
